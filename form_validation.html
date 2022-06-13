@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+            function validate(){
+                let x=document.forms["myForm"]["user"].value;
+                if (x==""){
+                    window.alert("Username can't be blank!");
+                    return false;
+                }
+
+                if(x.length<7){
+                    window.alert("Username can't be less than 7!");
+                    return false;
+                }
+
+                let y=document.forms["myForm"]["pass"].value;
+                let z=document.forms["myForm"]["cpass"].value;
+                if(z!=y){
+                    document.getElementById("t1").innerHTML="Passwords donot macth!";
+                }
+
+                let e=document.forms["myForm"]["em"].value;
+                if(e.indexOf("@")<=0){
+                    window.alert("Email must contain @");
+                    return false;
+                }
+
+                if(e.indexOf(".")!=3){
+                    window.alert("Should contain .");
+                    return flase;
+                }
+                window.alert("Validated");
+                return;
+            }
+
+        </script>
+    </head>
+    <body>
+        <form name="myForm"  onsubmit="validate()">
+            Username: <input type="text" name="user"><br/>
+            Password: <input type="password" name="pass"><br/>
+            Confirm password: <input type="password" name="cpass"><br/>
+            Email: <input type="text" name="em"><hr/>
+            <input type="submit" value="Submit">
+            <p id="t1"></p>
+        </form>
+    </body>
+</html>
